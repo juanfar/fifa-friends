@@ -8,7 +8,7 @@ export const loginView = `
       <label for="floatingInput">Correo Electrónico</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
       <label for="floatingPassword">Contraseña</label>
     </div>
 
