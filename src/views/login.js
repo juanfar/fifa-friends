@@ -1,17 +1,16 @@
 export const loginView = `
 <main class="page__form">
-  <form>
-  <!-- <img class="mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-    <span class="brand">FL</span>
-    <div class="form-floating mt-4">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+  <form id="login">
+    <span class="form-brand">FL</span>
+    <p id="form-error" class="mt-5"></p>
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
       <label for="floatingInput">Correo Electrónico</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" autocomplete="on" required>
       <label for="floatingPassword">Contraseña</label>
     </div>
-
     <!-- <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="remember-me"> Remember me
