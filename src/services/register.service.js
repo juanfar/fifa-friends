@@ -1,7 +1,6 @@
 import { createUser, emailVerification } from './aut.service.js';
 
 export const registerHandler = (divElement) => {
-  console.log('abc');
   const register = divElement.querySelector('#register');
   if (register) {
     register.addEventListener('submit', async (e) => {
@@ -12,16 +11,18 @@ export const registerHandler = (divElement) => {
       const registerError = divElement.querySelector('#form-error');
       try {
         createUser(email.value, password.value)
-          .then(async (userCredential) => {
-            const user = userCredential.user;
-            const username = userName.value;
-            await user.updateProfile({
-              displayName: username,
+          .then((credentials) => {
+            return firebase.firestore().collection('users').doc(credentials.user.uid).set({
+              name: userName.value,
+              email: email.value,
+            }).then(() => {
+              register.reset();
+              const loginRoute = `${window.location.origin}/#/login`;
+              emailVerification();
+              window.location.replace(loginRoute);
+            }).catch(err => {
+              console.log(err.message);
             });
-            register.reset();
-            const loginRoute = `${window.location.origin}/#/login`;
-            emailVerification();
-            window.location.replace(loginRoute);
           })
           .catch((error) => {
             const errorCode = error.code;
