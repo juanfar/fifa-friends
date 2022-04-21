@@ -1,4 +1,6 @@
+@import url(./base/card.css);
 @import url(./base/form.css);
+@import url(./base/page.css);
 
 @import url(./views/login.css);
 

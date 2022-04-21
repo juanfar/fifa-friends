@@ -1,4 +1,4 @@
-import { loginUser } from './aut.service.js';
+import { loginUser } from './auth.service.js';
 
 export const loginHandler = (divElement) => {
   const login = divElement.querySelector('#login');
@@ -10,15 +10,15 @@ export const loginHandler = (divElement) => {
       const loginError = divElement.querySelector('#form-error');
 
       loginUser(email.value, password.value)
-        .then((userCredential) => {
-          const userLogin = userCredential.user;
+        .then((credentials) => {
+          const userLogin = credentials.user;
           console.log(userLogin);
           if (userLogin) {
             localStorage.setItem("displayName", userLogin.displayName);
             localStorage.setItem("email", userLogin.email);
           }
           login.reset();
-          const homeRoute = `${window.location.origin}/#/`;
+          const homeRoute = `${window.location.origin}/#/user/${credentials.user.uid}`;
           window.location.replace(homeRoute);
         })
         .catch((errorLogin) => {

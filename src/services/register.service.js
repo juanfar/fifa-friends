@@ -1,4 +1,4 @@
-import { createUser, emailVerification } from './aut.service.js';
+import { createUser, emailVerification } from './auth.service.js';
 
 export const registerHandler = (divElement) => {
   const register = divElement.querySelector('#register');

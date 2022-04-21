@@ -14,6 +14,8 @@ const router = (route) => {
         return content.appendChild(views.Login());
       case route === '#/register':
         return content.appendChild(views.Register());
+      case route.includes('/user/'):
+        return content.appendChild(views.User());
       default:
     }
   }

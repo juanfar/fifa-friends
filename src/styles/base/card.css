@@ -1,0 +1,24 @@
+.card {
+  align-items: center;
+  background: #fff;
+  color: #444;
+  display: flex;
+  justify-content: center;
+  min-height: 194px;
+}
+
+.card .card-body {
+  flex: none;
+}
+
+.card.add {
+  background: #f4f4f4;
+  color: #a5a3a3;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.6rem;
+}
+
+.card.add i {
+  font-size: 4rem;
+}
